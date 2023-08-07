@@ -27,7 +27,7 @@ if __name__ == "__main__":
   
   hd=analysis_position.report_graph(report_normal_df,show_notebook=False)
   print(type(hd))
-  print(type(hd[0])
+  print(type(hd[0]))
   analysis_position.risk_analysis_graph(analysis_df, report_normal_df,show_notebook=False)
   #Analysismode
   label_df = dataset.prepare("test", col_set="label")
