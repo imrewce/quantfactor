@@ -1,10 +1,10 @@
-data_handler_config = {
+data_handler_config:
  "start_time": "2008-01-01",
  "end_time": "2020-08-01",
  "fit_start_time": "2008-01-01",
  "fit_end_time": "2014-12-31",
- "instruments": market,
-}
+ "instruments": *market
+
 task = {
  "model": {
  "class": "LGBModel",
