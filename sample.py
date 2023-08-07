@@ -14,8 +14,9 @@ if __name__ == "__main__":
  qlib.init(provider_uri=data_uri, region='cn')
  
   
- #model = init_instance_by_config(CSI300_GBDT_TASK["model"])
- #dataset = init_instance_by_config(CSI300_GBDT_TASK["dataset"])
+ model = init_instance_by_config(CSI300_GBDT_TASK["model"])
+ dataset = init_instance_by_config(CSI300_GBDT_TASK["dataset"])
+ 
  port_analysis_config = {
  "executor": {
  "class": "SimulatorExecutor",
@@ -49,6 +50,8 @@ if __name__ == "__main__":
             },
         },
     }
+
+ 
  # NOTE: This line is optional
  # It demonstrates that the dataset can be used standalone.
  example_df = dataset.prepare("train")
@@ -57,14 +60,17 @@ if __name__ == "__main__":
  with R.start(experiment_name="workflow"):
  R.log_params(**flatten_dict(CSI300_GBDT_TASK))
  model.fit(dataset)
+ 
  R.save_objects(**{"params.pkl": model})
  # prediction
  recorder = R.get_recorder()
  sr = SignalRecord(model, dataset, recorder)
  sr.generate()
+ 
  # Signal Analysis
  sar = SigAnaRecord(recorder)
  sar.generate()
+ 
  # backtest. If users want to use backtest based on their own prediction,
  # please refer to https://qlib.readthedocs.io/en/latest/component/recorder.html#record-template.
  par = PortAnaRecord(recorder, port_analysis_config, "day")
