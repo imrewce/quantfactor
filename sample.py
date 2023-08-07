@@ -66,9 +66,11 @@ if __name__ == "__main__":
   R.log_params(**flatten_dict(CSI300_GBDT_TASK))
   model.fit(dataset)
   
-  R.save_objects(**{"params.pkl": model})
+  R.save_objects(**{"params.pkl": model}) #save in mlruns
   # prediction
   recorder = R.get_recorder()
+  ba_rid = recorder.id
+  print(ba_rid)
   sr = SignalRecord(model, dataset, recorder)
   sr.generate()
   
