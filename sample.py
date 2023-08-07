@@ -28,7 +28,7 @@ if __name__ == "__main__":
         },
  "strategy": {
  "class": "TopkDropoutStrategy",
- "module_path": "qlib.contrib.strategy.model_strategy", ###version difference, careful!
+ "module_path": "qlib.contrib.telescope.workflow.record_metric" #qlib.contrib.strategy.model_strategy", ###version difference, careful!
  "kwargs": {
  "signal": (model, dataset),
  "topk": 50,
