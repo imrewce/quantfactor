@@ -5,15 +5,17 @@ from qlib.workflow import R
 from qlib.workflow.record_temp import SignalRecord, PortAnaRecord, SigAnaRecord
 from qlib.tests.data import GetData
 from qlib.tests.config import CSI300_BENCH, CSI300_GBDT_TASK
+import yaml,pyyaml
 
 
 if __name__ == "__main__":
 
- data_uri = 'E:/qlib/qlib_data/cn_data'
- qlib.init(provider_uri=data_uri, region=REG_CN)
+ data_uri = "~/.qlib/qlib_data/cn_data" 
+ qlib.init(provider_uri=data_uri, region='cn')
+ 
   
- model = init_instance_by_config(CSI300_GBDT_TASK["model"])
- dataset = init_instance_by_config(CSI300_GBDT_TASK["dataset"])
+ #model = init_instance_by_config(CSI300_GBDT_TASK["model"])
+ #dataset = init_instance_by_config(CSI300_GBDT_TASK["dataset"])
  port_analysis_config = {
  "executor": {
  "class": "SimulatorExecutor",
