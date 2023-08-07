@@ -1,8 +1,7 @@
 from qlib.contrib.report import analysis_model, analysis_position
 from qlib.data import D
 from qlib.workflow import R
-
-
+from qlib.utils import init_instance_by_config
 import qlib
 from qlib.tests.config import CSI300_BENCH, CSI300_GBDT_TASK
 
