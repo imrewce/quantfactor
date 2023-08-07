@@ -1,6 +1,6 @@
 from qlib.contrib.report import analysis_model, analysis_position
 from qlib.data import D
-recorder = R.get_recorder(recorder_id=ba_rid, experiment_name="backtest_analysis")
+recorder = R.get_recorder(recorder_id=ba_rid, experiment_name="workflow")
 print(recorder)
 pred_df = recorder.load_object("pred.pkl")
 
