@@ -58,7 +58,7 @@ if __name__ == "__main__":
  print(example_df.head())
  # start exp
  with R.start(experiment_name="workflow"):
- R.log_params(**flatten_dict(CSI300_GBDT_TASK))
+  R.log_params(**flatten_dict(CSI300_GBDT_TASK))
  model.fit(dataset)
  
  R.save_objects(**{"params.pkl": model})
