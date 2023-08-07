@@ -4,6 +4,7 @@ from qlib.workflow import R
 from qlib.utils import init_instance_by_config
 import qlib
 from qlib.tests.config import CSI300_BENCH, CSI300_GBDT_TASK
+import pandas as pd
 
 
 if __name__ == "__main__":
