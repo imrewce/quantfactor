@@ -75,23 +75,3 @@ if __name__ == "__main__":
  # please refer to https://qlib.readthedocs.io/en/latest/component/recorder.html#record-template.
  par = PortAnaRecord(recorder, port_analysis_config, "day")
  par.generate()
-
-'''
-provider_uri="~/.qlib/qlib_data/cn_data" # on 244 
-#under the path of qlib: python scripts/get_data.py qlib_data --target_dir ~/.qlib/qlib_data/cn_data --region cn
-qlib.init(provider_uri,region='cn') #REG_CN
-
-
-data_handler_config = {
- "start_time":"2020-01-01",
- "end_time":"2020-11-30",
- "fit_start_time":"2020-01-01",
- "fit_end time":"2020-06-30",
- "instruments":"all"
-        }
-
- h =Alpha158(**data_handler_config)
- # 获取列名(因子名称)/标签名
-# print(h.get_cols0())/ Alpha158_df_label = h.fetch(col_set="label")
-'''
-
