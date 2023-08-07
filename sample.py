@@ -18,41 +18,41 @@ if __name__ == "__main__":
  dataset = init_instance_by_config(CSI300_GBDT_TASK["dataset"])
  
  port_analysis_config = {
- "executor": {
- "class": "SimulatorExecutor",
- "module_path": "qlib.backtest.executor",
- "kwargs": {
- "time_per_step": "day",
- "generate_portfolio_metrics": True,
-            },
-        },
- "strategy": {
- "class": "TopkDropoutStrategy",
- "module_path": "qlib.contrib.telescope.workflow.record_metric" #qlib.contrib.strategy.model_strategy", ###version difference, careful!
- "kwargs":{
- "model": model,
- "dataset": dataset,
-    #model: <MODEL> 
-    #dataset: <DATASET>
- ### wrong "signal": (model, dataset),
- "topk": 50,
- "n_drop": 5,
-            },
-        },
- "backtest": {
- "start_time": "2017-01-01",
- "end_time": "2020-08-01",
- "account": 100000000,
- "benchmark": CSI300_BENCH,
- "exchange_kwargs": {
- "freq": "day",
- "limit_threshold": 0.095,
- "deal_price": "close",
- "open_cost": 0.0005,
- "close_cost": 0.0015,
- "min_cost": 5,
-            },
-        },
+  "executor": {
+   "class": "SimulatorExecutor",
+   "module_path": "qlib.backtest.executor",
+   "kwargs": {
+    "time_per_step": "day",
+    "generate_portfolio_metrics": True,
+              },
+         },
+  "strategy": {
+  "class": "TopkDropoutStrategy",
+  "module_path": "qlib.contrib.telescope.workflow.record_metric" #qlib.contrib.strategy.model_strategy", ###version difference, careful!
+  "kwargs": {
+      "model": model,
+      "dataset": dataset,
+      #model: <MODEL> 
+      #dataset: <DATASET>
+   ### wrong "signal": (model, dataset),
+   "topk": 50,
+   "n_drop": 5,
+             },
+         },
+  "backtest": {
+   "start_time": "2017-01-01",
+   "end_time": "2020-08-01",
+   "account": 100000000,
+   "benchmark": CSI300_BENCH,
+   "exchange_kwargs": {
+    "freq": "day",
+    "limit_threshold": 0.095,
+    "deal_price": "close",
+    "open_cost": 0.0005,
+    "close_cost": 0.0015,
+    "min_cost": 5,
+             },
+         },
     }
 
  
