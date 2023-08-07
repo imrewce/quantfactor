@@ -15,7 +15,7 @@ if __name__ == "__main__":
   model = init_instance_by_config(CSI300_GBDT_TASK["model"])
   dataset = init_instance_by_config(CSI300_GBDT_TASK["dataset"])
   
-  recorder = R.get_recorder(recorder_id=ba_rid, experiment_name="workflow")
+  recorder = R.get_recorder(recorder_id="a87843dc0a354b7a9fccfdc1cf75f215", experiment_name="workflow")
   print(recorder)
   pred_df = recorder.load_object("pred.pkl")
   
