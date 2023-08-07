@@ -26,7 +26,8 @@ if __name__ == "__main__":
   analysis_df = recorder.load_object("portfolio_analysis/port_analysis_1day.pkl")
   
   hd=analysis_position.report_graph(report_normal_df,show_notebook=False)
-  print(hd.type())
+  print(type(hd))
+  print(type(hd[0])
   analysis_position.risk_analysis_graph(analysis_df, report_normal_df,show_notebook=False)
   #Analysismode
   label_df = dataset.prepare("test", col_set="label")
