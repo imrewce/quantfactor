@@ -54,7 +54,7 @@ if __name__ == "__main__":
  
  # NOTE: This line is optional
  # It demonstrates that the dataset can be used standalone.
- example_df = dataset.prepare("train")
+ #example_df = dataset.prepare("train")
  print(example_df.head())
  # start exp
  with R.start(experiment_name="workflow"):
