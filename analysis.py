@@ -17,19 +17,19 @@ if __name__ == "__main__":
   
   recorder = R.get_recorder(recorder_id="a87843dc0a354b7a9fccfdc1cf75f215", experiment_name="workflow")
   print(recorder)
-  pred_df = recorder.load_object("pred.pkl")
+  pred_df = recorder.load_object("pred.pkl") #save in recorder
   
-  report_normal_df = recorder.load_object("portfolio_analysis/report_normal_1day.pkl")
+  report_normal_df = recorder.load_object("portfolio_analysis/report_normal_1day.pkl") #data
   positions = recorder.load_object("portfolio_analysis/positions_normal_1day.pkl")
   analysis_df = recorder.load_object("portfolio_analysis/port_analysis_1day.pkl")
   
-  analysis_position.report_graph(report_normal_df)
-  analysis_position.risk_analysis_graph(analysis_df, report_normal_df)
+  analysis_position.report_graph(report_normal_df,show_notebook=False)
+  analysis_position.risk_analysis_graph(analysis_df, report_normal_df,show_notebook=False)
   #Analysismode
   label_df = dataset.prepare("test", col_set="label")
   label_df.columns = ["label"]
   
   pred_label = pd.concat([label_df, pred_df], axis=1, sort=True).reindex(label_df.index)
-  analysis_position.score_ic_graph(pred_label)
+  analysis_position.score_ic_graph(pred_label,show_notebook=False)
   #Model performance
-  analysis_model.model_performance_graph(pred_label)
+  analysis_model.model_performance_graph(pred_label,show_notebook=False)
