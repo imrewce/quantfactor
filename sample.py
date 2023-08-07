@@ -5,7 +5,7 @@ from qlib.workflow import R
 from qlib.workflow.record_temp import SignalRecord, PortAnaRecord, SigAnaRecord
 from qlib.tests.data import GetData
 from qlib.tests.config import CSI300_BENCH, CSI300_GBDT_TASK
-import yaml,pyyaml
+import yaml
 
 
 if __name__ == "__main__":
