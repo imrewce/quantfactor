@@ -5,6 +5,7 @@ from qlib.utils import init_instance_by_config
 import qlib
 from qlib.tests.config import CSI300_BENCH, CSI300_GBDT_TASK
 import pandas as pd
+import kaleido
 
 
 if __name__ == "__main__":
@@ -24,7 +25,7 @@ if __name__ == "__main__":
   positions = recorder.load_object("portfolio_analysis/positions_normal_1day.pkl")
   analysis_df = recorder.load_object("portfolio_analysis/port_analysis_1day.pkl")
   
-  print(analysis_position.report_graph(report_normal_df,show_notebook=False))
+  analysis_position.report_graph(report_normal_df,show_notebook=False).write_image("test.png")
   analysis_position.risk_analysis_graph(analysis_df, report_normal_df,show_notebook=False)
   #Analysismode
   label_df = dataset.prepare("test", col_set="label")
