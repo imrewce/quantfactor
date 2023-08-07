@@ -30,7 +30,11 @@ if __name__ == "__main__":
  "class": "TopkDropoutStrategy",
  "module_path": "qlib.contrib.telescope.workflow.record_metric" #qlib.contrib.strategy.model_strategy", ###version difference, careful!
  "kwargs": {
- "signal": (model, dataset),
+  "model": model,
+  "dataset": dataset,
+    #model: <MODEL> 
+    #dataset: <DATASET>
+ ### wrong "signal": (model, dataset),
  "topk": 50,
  "n_drop": 5,
             },
