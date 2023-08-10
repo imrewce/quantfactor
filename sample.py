@@ -10,7 +10,7 @@ import yaml
 
 if __name__ == "__main__":
 
- data_uri = "~/.qlib/qlib_data/cn_data" 
+ data_uri = "home/wc414598/.qlib/qlib_data/cn_data" 
  qlib.init(provider_uri=data_uri, region='cn')
  
   
