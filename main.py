@@ -167,3 +167,26 @@ report_normal_1day_df: pd.DataFrame = recorder.load_object(
     "portfolio_analysis/report_normal_1day.pkl")
 report_graph(report_normal_1day_df)
 '''
+
+def get_stv_feature() -> str:
+    abs_ret: str = "Abs($close/Ref($close,1)-1)"
+    return f"If({abs_ret}>=0.1,{abs_ret}*100,$turnover_rate)"
+    
+sigma_frame:pd.DataFrame = D.features(POOLS,fields=[get_stv_feature()])
+
+sigma_frame.columns = ['sigma']
+
+sigma_frame:pd.DataFrame = sigma_frame.unstack(level=0)['sigma']
+stv_w:pd.DataFrame = calc_weight(sigma_frame)
+STV:pd.DataFrame = stv_w.rolling(20).cov(pct_chg)
+
+STV:pd.Series = STV.stack()
+STV.name = "STV"
+feature_stv: pd.DataFrame = pd.concat(
+    (next_ret, STV), axis=1
+)
+feature_stv.columns = pd.MultiIndex.from_tuples(
+    [("label", "next_ret"), ("feature", "STV")]
+)
+
+feature_stv.head()
